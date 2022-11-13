@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .seat {
+            display: flex;
+
+        }
+
+        .seat input[type=checkbox] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .seat label {
+            display: block;
+            position: relative;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.5rem;
+            padding: 4px 0;
+            background: lightgrey;
+            border-radius: 5px;
+            animation-duration: 300ms;
+            animation-fill-mode: both;
+            padding: 5px;
+        }
+
+        .seat label:before {
+            content: "";
+            position: absolute;
+            width: 75%;
+            height: 75%;
+            top: 1px;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            background: rgba(255, 255, 255, .4);
+            border-radius: 3px;
+        }
+
+        .seat label:hover {
+            cursor: pointer;
+            box-shadow: 0 0 0px 2px #5c6aff;
+        }
+
+        .seat input[type=checkbox]:checked+label {
+            background: lightblue;
+            -webkit-animation-name: rubberBand;
+            animation-name: rubberBand;
+            animation-duration: 300ms;
+            animation-fill-mode: both;
+        }
+
+        .seat input[type=checkbox]:disabled+label:hover {
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+
+        .seat input[type=checkbox]:disabled+label {
+            background: grey;
+
+            overflow: hidden;
+        }
+
+        .top {
+            margin: 0px 0px 60px 0px;
+        }
+
+        .left {
+            margin: 0px 200px 0px 0px;
+        }
+
+        @media only screen and (max-width: 991px) {
+            #web-view {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="container m-5" id="web-view" style="background-color: lightgrey;">
+        <div class="card row" style="background-color: lightgrey;">
+
+            <div class="container p-5 row ">
+                <div class="col-auto p-2" style="background-color: white;border-radius: 10px 0px  0px 10px;">
+                    <i style="font-size:24px" class="fa">&#xf1b9;</i>
+                </div>
+                <div class="col-auto p-2 bus" style="background-color: white;border-radius: 0px 10px  10px 0px;">
+                    <div class="top">
+                        <div class="row">
+
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="1C" />
+                                <label for="1C">1C</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="2C" />
+                                <label for="2C">2C</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="3C" />
+                                <label for="3C">3C</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="4C" />
+                                <label for="4C">4C</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" disabled  id="5C" />
+                                <label for="5C">5C</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="6C" />
+                                <label for="6C">6C</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="7C" />
+                                <label for="7C">7C</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="8C" />
+                                <label for="8C">8C</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="9C" />
+                                <label for="9C">9C</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="10C" />
+                                <label for="10C">10C</label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="1B" />
+                                <label for="1B">1B</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="2B" />
+                                <label for="2B">2B</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="3B" />
+                                <label for="3B">3B</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="4B" />
+                                <label for="4B">4B</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="5B" />
+                                <label for="5B">5B</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="6B" />
+                                <label for="6B">6B</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="7B" />
+                                <label for="7B">7B</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="8B" />
+                                <label for="8B">8B</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="9B" />
+                                <label for="9B">9B</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe double" id="10B" />
+                                <label for="10B">10B</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom">
+                        <div class="row">
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe" id="1A" />
+                                <label for="1A">1A</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" disabled  id="2A" />
+                                <label for="2A">2A</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" disabled  id="3A" />
+                                <label for="3A">3A</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe" id="4A" />
+                                <label for="4A">4A</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe" id="5A" />
+                                <label for="5A">5A</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" disabled  id="6A" />
+                                <label for="6A">6A</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" disabled  id="7A" />
+                                <label for="7A">7A</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" disabled  id="8A" />
+                                <label for="8A">8A</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe" id="9A" />
+                                <label for="9A">9A</label>
+                            </div>
+                            <div class="col-auto seat">
+                                <input type="checkbox" class="availabe" id="10A" />
+                                <label for="10A">10A</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <p>Seat Legend:</p>
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="seat">
+                                9A
+                            </div>
+
+                        </div>
+                        <div class="col-auto">
+                            <p>Availabe</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="seat">
+                                9A
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <p>Selected</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="number" id="qauntityNeeded" placeholder="Input Quantity needed">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-sm btn-primary" onclick="AssignSeat();">Assing</button>
+                        </div>
+                    </div>
+
+                    <div class="seat">
+                        9A
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+
+
+                            <div class="left col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" id="1A" />
+                                        <label for="1A">1A</label>
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" id="2A" />
+                                        <label for="2A">2A</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" id="1A" />
+                                        <label for="1A">1A</label>
+                                    </div>
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" id="1A" />
+                                        <label for="1A">1A</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" id="1A" />
+                                        <label for="1A">1A</label>
+                                    </div>
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" id="1A" />
+                                        <label for="1A">1A</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+        integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        var numberOfTicekt = 0
+        $(document).ready(function () {
+            if ($(window).width() <= 991) {
+                $('#exampleModal').modal('show');
+            }
+            else {
+                $('#exampleModal').modal('hide');
+            }
+
+
+
+            $('.bus .seat .availabe').each(function () {
+
+
+                $(this).click(function () {
+
+
+                    console.log($(this).is(':checked'));
+                    if ($(this).is(':checked') == false) {
+                        numberOfTicekt--;
+                        $(this).prop('checked', false)
+                    }
+
+                    else {
+                        $(this).prop('checked', true)
+                        numberOfTicekt++;
+                    }
+                    console.log(numberOfTicekt);
+
+
+                })
+
+
+            })
+
+
+
+        })
+
+        // var width = document.documentElement.clientWidth || window.innerWidth;
+        // if (width <= 991){
+        //     alert("asdsadasd");
+        // } 
+
+        $(window).resize(function () {
+            if ($(window).width() <= 991) {
+                $('#exampleModal').modal('show');
+            }
+            else {
+                $('#exampleModal').modal('hide');
+            }
+
+
+        });
+        const availabeIds = [];
+
+        $('.bus .seat .availabe').each(function () {
+            availabeIds.push(this.id)
+        })
+
+
+
+
+        const allAvailableSeats = [];
+        const allAvailableSeatDoubles = [];
+        const selectedSeats = [];
+
+        $('.bus .seat .availabe.double').each(function () {
+            allAvailableSeatDoubles.push(this.id);
+        })
+
+        $('.bus .seat .availabe').each(function () {
+            allAvailableSeats.push(this.id);
+        })
+
+
+
+        function AssignSeat() {
+
+            var quantityNeeded = $('#qauntityNeeded').val();
+
+
+            if (allAvailableSeats.length > 0) {
+                for (var i = 1; i <=quantityNeeded; i++) {
+
+                    if (quantityNeeded > 1 ) // pilih yang double dahulu
+                    {
+                        if (allAvailableSeatDoubles.length > 2) {
+
+                            
+                         selectAdjancent();
+                         i++;
+
+                         if(quantityNeeded  % 2 != 0  && quantityNeeded - i == 1){
+                            selectRandom();
+                            i++;
+                         }
+
+                            // console.log("quantitiy needed " + quantityNeeded);
+                        }
+                        else { //pilih je mana2
+                           selectRandom();
+                        }
+                    }
+                    else //pilih je mana2
+                    {
+                       selectRandom();
+                      
+                    }
+                }
+
+            }
+
+
+        }
+
+
+
+       
+
+
+        function selectAdjancent() {
+
+            // alert(quantityNeeded);
+
+            var randomIndex = Math.floor(Math.random() * allAvailableSeatDoubles.length);
+            var randomSelectedSeat = allAvailableSeatDoubles[randomIndex];
+            allAvailableSeatDoubles.splice(randomIndex, 1);
+
+            console.log('selected ' + randomSelectedSeat);
+
+            var indexInAvailableSeat = allAvailableSeats.indexOf(randomSelectedSeat);
+            allAvailableSeats.splice(indexInAvailableSeat, 1);
+
+            selectedSeats.push(randomSelectedSeat);
+
+           
+
+            var selectedSeat = document.getElementById(randomSelectedSeat);
+            $(selectedSeat).attr('disabled', 'disabled');
+
+
+
+            if (allAvailableSeatDoubles.length > 0) {
+
+                if (randomSelectedSeat.includes('C')) { //cari B
+                   quantityNeeded =  findAdjancent(randomSelectedSeat, 'C');
+                }
+
+                if (randomSelectedSeat.includes('B')) { //cari C
+                    quantityNeeded =  findAdjancent(randomSelectedSeat, 'B');
+                }
+
+            } else { // pilih je mana2
+               selectRandom();
+
+               
+            }
+
+
+
+          
+
+        }
+
+        function selectRandom() {
+
+            if (allAvailableSeats.length > 0) {
+
+                var randomIndex = Math.floor(Math.random() * allAvailableSeats.length);
+
+                var randomSeat = allAvailableSeats[randomIndex];
+
+                var isExistInDoubleSeat = allAvailableSeatDoubles.indexOf(randomSeat);
+                if (isExistInDoubleSeat > 0) {
+                    allAvailableSeatDoubles.splice(isExistInDoubleSeat, 1);
+                }
+
+                allAvailableSeats.splice(randomIndex, 1);
+
+                selectedSeats.push(randomSeat);
+
+                var selectedSeat = document.getElementById(randomSeat);
+                $(selectedSeat).attr('disabled', 'disabled');
+
+             
+
+            }else{
+                alert('no availabe seat anymore, sorry');
+            }
+
+            console.log('selected ' + selectedSeats)
+
+        }
+
+
+
+        function findAdjancent(randomSeatSelected, seatType) {
+
+
+            var splitedIdArr = randomSeatSelected.split('');
+
+            var adjancetSeatID = '';
+
+
+
+
+            if (seatType == 'C') {
+                if (splitedIdArr.length > 2) {
+                    adjancetSeatID = splitedIdArr[0].toString() + splitedIdArr[1].toString() + 'B';
+                } else {
+                    adjancetSeatID = splitedIdArr[0] + 'B'
+                }
+            }
+
+            if (seatType == 'B') {
+                if (splitedIdArr.length > 2) {
+                    adjancetSeatID = splitedIdArr[0].toString() + splitedIdArr[1].toString() + 'C';
+                } else {
+                    adjancetSeatID = splitedIdArr[0] + 'C'
+                }
+            }
+
+            console.log('adjancet '+ adjancetSeatID);
+
+            var isAdjancentSeatExist = allAvailableSeatDoubles.indexOf(adjancetSeatID);
+
+            if (isAdjancentSeatExist > 0) {
+                allAvailableSeatDoubles.splice(isAdjancentSeatExist, 1);
+
+                var indexInAllAvilableSeat = allAvailableSeats.indexOf(adjancetSeatID);
+
+                allAvailableSeats.splice(indexInAllAvilableSeat, 1)
+                selectedSeats.push(adjancetSeatID);
+
+                var adjancentSeat = document.getElementById(adjancetSeatID);
+                $(adjancentSeat).attr('disabled', 'disabled');
+              
+            } else {
+
+              selectRandom();
+
+              
+
+            }
+
+            console.log('availale double seat ' + allAvailableSeatDoubles);
+            console.log('availabe seat ' + allAvailableSeats)
+
+            console.log('selected seat ' + selectedSeats)
+
+           
+
+         
+
+        }
+
+        function Assign() {
+
+            // var filteredArr = availabeIds;
+            // console.log(filteredArr)
+
+            var quantityNeeded = $('#qauntityNeeded').val();
+
+
+            if (availabeIds.length > 0) {
+                for (var i = 1; i <= quantityNeeded; i++) {
+                    var RandomNumber = Math.floor(Math.random() * availabeIds.length)
+
+                    var randomId = availabeIds[RandomNumber];
+                    availabeIds.splice(RandomNumber, 1);
+
+                    console.log('selected ' + randomId);
+
+                    if (randomId.includes('C')) // find b
+                    {
+
+
+
+
+
+                        var selected = document.getElementById(randomId);
+
+                        $(selected).attr('disabled', 'disabled');
+                        var availabeSeat = quantityNeeded - i;
+
+                        if (quantityNeeded > 1 && availabeSeat > 0) {
+                            var splitedIdArr = randomId.split('');
+
+
+
+                            var adjacentId = '';
+                            if (splitedIdArr.length > 2) {
+                                adjacentId = splitedIdArr[0].toString() + splitedIdArr[1].toString() + 'B'
+                            } else {
+                                adjacentId = splitedIdArr[0] + 'B'
+                            }
+
+
+                            console.log('adjancet ' + adjacentId)
+
+                            var exist = availabeIds.indexOf(adjacentId);
+                            if (exist > 0) {
+                                var adjacent = document.getElementById(adjacentId);
+                                $(adjacent).attr('disabled', 'disabled');
+                                i++;
+                            }
+                        }
+
+
+
+                    }
+                    else if (randomId.includes('B')) { //find c
+
+
+
+                        var selected = document.getElementById(randomId);
+
+                        $(selected).attr('disabled', 'disabled');
+                        var availabeSeat = quantityNeeded - i;
+                        if (quantityNeeded > 1 && availabeSeat > 0) {
+                            var splitedIdArr = randomId.split('');
+
+                            var adjacentId = '';
+                            if (splitedIdArr.length > 2) {
+                                adjacentId = splitedIdArr[0].toString() + splitedIdArr[1].toString() + 'C'
+                            } else {
+                                adjacentId = splitedIdArr[0] + 'C'
+                            }
+
+
+                            console.log('adjancet ' + adjacentId)
+                            var exist = availabeIds.indexOf(adjacentId);
+                            if (exist > 0) {
+                                var adjacent = document.getElementById(adjacentId);
+                                $(adjacent).attr('disabled', 'disabled');
+                                i++;
+                            }
+                        }
+
+
+                    }
+
+                    else {
+
+                        var selected = document.getElementById(randomId);
+
+                        $(selected).attr('disabled', 'disabled');
+
+                    }
+
+                }
+            }
+            else {
+                alert("No Seat Availabe");
+            }
+
+
+
+
+
+
+        }
+
+
+
+    </script>
+
+</body>
+
+
+</html>
