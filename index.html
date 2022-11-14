@@ -37,6 +37,22 @@
             padding: 5px;
         }
 
+         .selected label {
+            display: block;
+            position: relative;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.5rem;
+            padding: 4px 0;
+            background: lightgray;
+            border-radius: 5px;
+            animation-duration: 300ms;
+            animation-fill-mode: both;
+            padding: 5px;
+        }
+
         .seat label:before {
             content: "";
             position: absolute;
@@ -49,13 +65,16 @@
             border-radius: 3px;
         }
 
+        
+
         .seat label:hover {
             cursor: pointer;
             box-shadow: 0 0 0px 2px #5c6aff;
         }
 
         .seat input[type=checkbox]:checked+label {
-            background: lightblue;
+            background: blue;
+            color: #fff;
             -webkit-animation-name: rubberBand;
             animation-name: rubberBand;
             animation-duration: 300ms;
@@ -72,9 +91,10 @@
 
             overflow: hidden;
         }
+        
 
         .top {
-            margin: 0px 0px 60px 0px;
+            margin: 0px 0px 100px 0px;
         }
 
         .left {
@@ -93,14 +113,14 @@
 
 
 
-    <div class="container m-5" id="web-view" style="background-color: lightgrey;">
-        <div class="card row" style="background-color: lightgrey;">
+    <div class="container m-5" id="web-view" style="background-color: white;">
+        <div class="card row" style="background-color: white;">
 
             <div class="container p-5 row ">
-                <div class="col-auto p-2" style="background-color: white;border-radius: 10px 0px  0px 10px;">
+                <div class="col-auto p-2" style="background-color: white;border-radius: 10px 0px  0px 10px;border: 1px solid #000;border-right: 0px;">
                     <i style="font-size:24px" class="fa">&#xf1b9;</i>
                 </div>
-                <div class="col-auto p-2 bus" style="background-color: white;border-radius: 0px 10px  10px 0px;">
+                <div class="col-auto p-2 bus" style="background-color: white;border-radius: 0px 10px  10px 0px;border: 1px solid #000;border-left: 0px;">
                     <div class="top">
                         <div class="row">
 
@@ -232,45 +252,52 @@
                                 <input type="checkbox" class="availabe" id="10A" />
                                 <label for="10A">10A</label>
                             </div>
+                          
                         </div>
                     </div>
                 </div>
                 <div class="col-auto">
                     <p>Seat Legend:</p>
                     <div class="row">
-                        <div class="col-auto">
-                            <div class="seat">
-                                9A
-                            </div>
-
+                        <div class="col-auto seat selected">
+                            <input type="checkbox"   />
+                            <label>&nbsp;&nbsp;&nbsp;&nbsp;</label>
                         </div>
                         <div class="col-auto">
                             <p>Availabe</p>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col">
-                            <div class="seat">
-                                9A
-                            </div>
-
+                    <div class="row mt-2">
+                        <div class="col-auto seat selected">
+                            <input type="checkbox" checked   />
+                            <label>&nbsp;&nbsp;&nbsp;&nbsp;</label>
                         </div>
-                        <div class="col">
+                        <div class="col-auto">
                             <p>Selected</p>
                         </div>
                     </div>
-                    <div class="row">
+
+                    <div class="row mt-2">
+                        <div class="col-auto ">
+                           <p>No. of ticket(s): </p>
+                        </div>
+                        <div class="col-auto">
+                            <p id="numberticket" style="color: green;">0</p>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
                         <div class="col">
-                            <input type="number" id="qauntityNeeded" placeholder="Input Quantity needed">
+                            <input type="number" class="form-control"  id="qauntityNeeded" placeholder="Input Quantity needed">
                         </div>
                         <div class="col">
                             <button class="btn btn-sm btn-primary" onclick="AssignSeat();">Assing</button>
+                            <button class="btn btn-sm btn-danger" onclick="Reset();">Reset</button>
                         </div>
                     </div>
 
-                    <div class="seat">
-                        9A
+                    <div class="seat mt-2">
+                        <button class="btn btn-sm btn-warning" >Proceed</button>
                     </div>
                 </div>
 
@@ -293,53 +320,249 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-
-
+                    <div class="container m-bus">
+                        <div class="row ">
                             <div class="left col">
                                 <div class="row">
                                     <div class="col-auto seat">
-                                        <input type="checkbox" id="1A" />
-                                        <label for="1A">1A</label>
+                                        <input type="checkbox" class="availabe" id="m-1A" />
+                                        <label for="m-1A">1A&nbsp;&nbsp;</label>
                                     </div>
-
-
                                 </div>
-                                <div class="row">
-
-                                    <div class="col-auto seat">
-                                        <input type="checkbox" id="2A" />
-                                        <label for="2A">2A</label>
-                                    </div>
-
-                                </div>
+                               
                             </div>
-
-
                             <div class="col">
                                 <div class="row">
                                     <div class="col-auto seat">
-                                        <input type="checkbox" id="1A" />
-                                        <label for="1A">1A</label>
+                                        <input type="checkbox" class="availabe double" id="m-1B" />
+                                        <label for="m-1B">1B&nbsp;&nbsp;</label>
                                     </div>
                                     <div class="col-auto seat">
-                                        <input type="checkbox" id="1A" />
-                                        <label for="1A">1A</label>
+                                        <input type="checkbox" class="availabe double"  id="m-1C" />
+                                        <label for="m-1C">1C&nbsp;&nbsp;</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-auto seat">
-                                        <input type="checkbox" id="1A" />
-                                        <label for="1A">1A</label>
-                                    </div>
-                                    <div class="col-auto seat">
-                                        <input type="checkbox" id="1A" />
-                                        <label for="1A">1A</label>
-                                    </div>
-                                </div>
+                              
                             </div>
                         </div>
+                        <div class="row mt-2">
+                            <div class="left col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" disabled id="m-2A" />
+                                        <label for="m-2A">2A&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-2B" />
+                                        <label for="m-2B">2B&nbsp;&nbsp;</label>
+                                    </div>
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-2C" />
+                                        <label for="m-2C">2C&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="left col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" disabled id="m-3A" />
+                                        <label for="m-3A">3A&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-3B" />
+                                        <label for="m-3B">3B&nbsp;&nbsp;</label>
+                                    </div>
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-3C" />
+                                        <label for="m-3C">3C&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="left col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe" id="m-4A" />
+                                        <label for="m-4A">4A&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-4B" />
+                                        <label for="m-4B">4B&nbsp;&nbsp;</label>
+                                    </div>
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-4C" />
+                                        <label for="m-4C">4C&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="left col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe" id="m-5A" />
+                                        <label for="m-5A">5A&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-5B" />
+                                        <label for="m-5B">5B&nbsp;&nbsp;</label>
+                                    </div>
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" disabled id="5C" />
+                                        <label for="m-5C">5C&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="left col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" disabled  id="m-6A" />
+                                        <label for="m-6A">6A&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-6B" />
+                                        <label for="m-6B">6B&nbsp;&nbsp;</label>
+                                    </div>
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-6C" />
+                                        <label for="m-6C">6C&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="left col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" disabled id="m-7A" />
+                                        <label for="m-7A">7A&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-7B" />
+                                        <label for="m-7B">7B&nbsp;&nbsp;</label>
+                                    </div>
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-7C" />
+                                        <label for="m-7C">7C&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="left col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" disabled id="m-8A" />
+                                        <label for="m-8A">8A&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-8B" />
+                                        <label for="m-8B">8B&nbsp;&nbsp;</label>
+                                    </div>
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-8C" />
+                                        <label for="m-8C">8C&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="left col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox"  id="m-9A" />
+                                        <label for="m-9A">9A&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-9B" />
+                                        <label for="m-9B">9B&nbsp;&nbsp;</label>
+                                    </div>
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-9C" />
+                                        <label for="m-9C">9C&nbsp;&nbsp;</label>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="left col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe"  id="m-10A" />
+                                        <label for="m-10">10A</label>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-10B" />
+                                        <label for="m-10B">10B</label>
+                                    </div>
+                                    <div class="col-auto seat">
+                                        <input type="checkbox" class="availabe double" id="m-10C" />
+                                        <label for="m-10C">10C</label>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+
+
 
 
                     </div>
@@ -359,6 +582,19 @@
         crossorigin="anonymous"></script>
 
     <script>
+        const allAvailableSeats = [];
+        const allAvailableSeatDoubles = [];
+        const selectedSeats = [];
+
+
+        $('.bus .seat .availabe.double').each(function () {
+            allAvailableSeatDoubles.push(this.id);
+        })
+
+        $('.bus .seat .availabe').each(function () {
+            allAvailableSeats.push(this.id);
+        })
+
 
         var numberOfTicekt = 0
         $(document).ready(function () {
@@ -399,10 +635,7 @@
 
         })
 
-        // var width = document.documentElement.clientWidth || window.innerWidth;
-        // if (width <= 991){
-        //     alert("asdsadasd");
-        // } 
+        
 
         $(window).resize(function () {
             if ($(window).width() <= 991) {
@@ -423,17 +656,7 @@
 
 
 
-        const allAvailableSeats = [];
-        const allAvailableSeatDoubles = [];
-        const selectedSeats = [];
-
-        $('.bus .seat .availabe.double').each(function () {
-            allAvailableSeatDoubles.push(this.id);
-        })
-
-        $('.bus .seat .availabe').each(function () {
-            allAvailableSeats.push(this.id);
-        })
+       
 
 
 
@@ -469,7 +692,11 @@
                        selectRandom();
                       
                     }
+
+                   
                 }
+                var number = calculateNumberOfTicket();
+               $('#numberticket').html(number);
 
             }
 
@@ -489,7 +716,7 @@
             var randomSelectedSeat = allAvailableSeatDoubles[randomIndex];
             allAvailableSeatDoubles.splice(randomIndex, 1);
 
-            console.log('selected ' + randomSelectedSeat);
+          
 
             var indexInAvailableSeat = allAvailableSeats.indexOf(randomSelectedSeat);
             allAvailableSeats.splice(indexInAvailableSeat, 1);
@@ -499,7 +726,7 @@
            
 
             var selectedSeat = document.getElementById(randomSelectedSeat);
-            $(selectedSeat).attr('disabled', 'disabled');
+            $(selectedSeat).attr('checked', true);
 
 
 
@@ -543,7 +770,7 @@
                 selectedSeats.push(randomSeat);
 
                 var selectedSeat = document.getElementById(randomSeat);
-                $(selectedSeat).attr('disabled', 'disabled');
+                $(selectedSeat).attr('checked', true);
 
              
 
@@ -551,7 +778,7 @@
                 alert('no availabe seat anymore, sorry');
             }
 
-            console.log('selected ' + selectedSeats)
+          
 
         }
 
@@ -583,7 +810,7 @@
                 }
             }
 
-            console.log('adjancet '+ adjancetSeatID);
+          
 
             var isAdjancentSeatExist = allAvailableSeatDoubles.indexOf(adjancetSeatID);
 
@@ -596,7 +823,7 @@
                 selectedSeats.push(adjancetSeatID);
 
                 var adjancentSeat = document.getElementById(adjancetSeatID);
-                $(adjancentSeat).attr('disabled', 'disabled');
+                $(adjancentSeat).attr('checked', true);
               
             } else {
 
@@ -606,10 +833,7 @@
 
             }
 
-            console.log('availale double seat ' + allAvailableSeatDoubles);
-            console.log('availabe seat ' + allAvailableSeats)
-
-            console.log('selected seat ' + selectedSeats)
+            
 
            
 
@@ -617,112 +841,31 @@
 
         }
 
-        function Assign() {
+        function Reset(){
+           selectedSeats.forEach(function(element,index) {
+            
+                var selectedSeat = document.getElementById(element);
+              
+                $(selectedSeat).prop('checked',false);
 
-            // var filteredArr = availabeIds;
-            // console.log(filteredArr)
+                
+           });
 
-            var quantityNeeded = $('#qauntityNeeded').val();
-
-
-            if (availabeIds.length > 0) {
-                for (var i = 1; i <= quantityNeeded; i++) {
-                    var RandomNumber = Math.floor(Math.random() * availabeIds.length)
-
-                    var randomId = availabeIds[RandomNumber];
-                    availabeIds.splice(RandomNumber, 1);
-
-                    console.log('selected ' + randomId);
-
-                    if (randomId.includes('C')) // find b
-                    {
-
-
-
-
-
-                        var selected = document.getElementById(randomId);
-
-                        $(selected).attr('disabled', 'disabled');
-                        var availabeSeat = quantityNeeded - i;
-
-                        if (quantityNeeded > 1 && availabeSeat > 0) {
-                            var splitedIdArr = randomId.split('');
-
-
-
-                            var adjacentId = '';
-                            if (splitedIdArr.length > 2) {
-                                adjacentId = splitedIdArr[0].toString() + splitedIdArr[1].toString() + 'B'
-                            } else {
-                                adjacentId = splitedIdArr[0] + 'B'
-                            }
-
-
-                            console.log('adjancet ' + adjacentId)
-
-                            var exist = availabeIds.indexOf(adjacentId);
-                            if (exist > 0) {
-                                var adjacent = document.getElementById(adjacentId);
-                                $(adjacent).attr('disabled', 'disabled');
-                                i++;
-                            }
-                        }
-
-
-
-                    }
-                    else if (randomId.includes('B')) { //find c
-
-
-
-                        var selected = document.getElementById(randomId);
-
-                        $(selected).attr('disabled', 'disabled');
-                        var availabeSeat = quantityNeeded - i;
-                        if (quantityNeeded > 1 && availabeSeat > 0) {
-                            var splitedIdArr = randomId.split('');
-
-                            var adjacentId = '';
-                            if (splitedIdArr.length > 2) {
-                                adjacentId = splitedIdArr[0].toString() + splitedIdArr[1].toString() + 'C'
-                            } else {
-                                adjacentId = splitedIdArr[0] + 'C'
-                            }
-
-
-                            console.log('adjancet ' + adjacentId)
-                            var exist = availabeIds.indexOf(adjacentId);
-                            if (exist > 0) {
-                                var adjacent = document.getElementById(adjacentId);
-                                $(adjacent).attr('disabled', 'disabled');
-                                i++;
-                            }
-                        }
-
-
-                    }
-
-                    else {
-
-                        var selected = document.getElementById(randomId);
-
-                        $(selected).attr('disabled', 'disabled');
-
-                    }
-
-                }
-            }
-            else {
-                alert("No Seat Availabe");
+           while(selectedSeats.length > 0) {
+            selectedSeats.pop();
             }
 
-
-
-
-
+          var number =  calculateNumberOfTicket()
+          
+          $('#numberticket').html(number);
 
         }
+
+        function calculateNumberOfTicket(){
+            return selectedSeats.length
+        }
+
+       
 
 
 
